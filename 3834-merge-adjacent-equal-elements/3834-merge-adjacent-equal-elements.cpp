@@ -12,7 +12,7 @@ public:
 
             while(stack.size()>=2 && stack[stack.size()-1] == stack[stack.size()-2])
             {
-                int val = stack.back();
+                long long val = stack.back();
                 stack.pop_back();
                 stack.back()+=val;
             }
