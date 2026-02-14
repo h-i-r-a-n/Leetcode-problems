@@ -2,22 +2,23 @@ class Solution {
 public:
     vector<long long> mergeAdjacent(vector<int>& nums) {
 
-        vector<long long> st;
+        int n = nums.size();
+        
+        vector<long long> stack;
 
-        for(long long x : nums)
+        for(int i = 0; i<n; i++)
         {
-            st.push_back(x);
+            stack.push_back(nums[i]);
 
-            // keep merging while last two equal
-            while(st.size() >= 2 &&
-                  st[st.size()-1] == st[st.size()-2])
+            while(stack.size()>=2 && stack[stack.size()-1] == stack[stack.size()-2])
             {
-                long long val = st.back();
-                st.pop_back();
-                st.back() += val;
+                int val = stack.back();
+                stack.pop_back();
+                stack.back()+=val;
             }
         }
 
-        return st;
+        return stack;
+        
     }
 };
