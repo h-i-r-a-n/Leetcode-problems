@@ -6,26 +6,12 @@
 class Solution:
     def middleNode(self, head: ListNode | None) -> ListNode | None:
 
-        current = head
-        count = 0
-        while current:
-            current = current.next
-            count+=1
+        slow = head
+        fast = head
 
-        half = 0
-        half = count//2
-        lst = []
-        count = 0
-        current = head
-        while current:
-            if count >= half:
-                return current
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
 
-
-            current = current.next
-            count+=1
-        
-        
-
-
+        return slow
         
