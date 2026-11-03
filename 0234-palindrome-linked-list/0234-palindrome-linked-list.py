@@ -1,26 +1,24 @@
 # Definition for singly-linked list.
-# class ListNode(object):
+# class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution(object):
-    def isPalindrome(self, head):
-        
+class Solution:
+    def isPalindrome(self, head: ListNode | None) -> bool:
 
-        dummy = ListNode(0)
-        cur1 = head
-        cur2 = dummy
-        
-        while cur1:
-            cur2.next = ListNode(cur1.val)
-            cur2 = cur2.next
+        #STEP 1 : FIND MID USING SLOW AND FAST POINTERS
+        #STEP 2 : once at mid, start reversing the rest of the LL using the rev algo
+        #STEP 3 : ONCE THE IT REACHES END START LOOPING FROM START AND END TOWARDS THE MIDDLE UNTIL IT AINT DIFFERNT
 
-            cur1= cur1.next
+        slow = head
+        fast = head
 
-        
-        prev  = None
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
 
-        current = dummy.next
+        prev = None
+        current = slow
 
         while current:
             next_node = current.next
@@ -28,17 +26,15 @@ class Solution(object):
             prev = current
             current = next_node
 
-        p1 = head
-        p2 = prev
+        left = head
+        right = prev
 
-        while p1 and p2:
-            if p1.val != p2.val:
-                return False  # Values don't match -> Not a palindrome
-            p1 = p1.next
-            p2 = p2.next
+        while right:
+            if left.val!=right.val :
+                return False
+
+            left = left.next
+            right = right.next
 
         return True
-
         
-        
-
