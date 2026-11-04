@@ -34,12 +34,22 @@ class Solution:
         if sum == 0:
             return dummy
 
+        total = str(sum)
+        total = total[::-1]
+
+        for i in total:
+            current.next = ListNode(int(i))
+            current = current.next
+
+        """
         while sum>0:
             digit = sum%10
             current.next = ListNode(digit)
             current = current.next
 
             sum//=10
+
+        """
 
         return dummy.next
 
