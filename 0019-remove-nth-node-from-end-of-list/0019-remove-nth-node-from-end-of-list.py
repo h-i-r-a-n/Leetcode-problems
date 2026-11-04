@@ -5,8 +5,8 @@
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: ListNode | None, n: int) -> ListNode | None:
-        
         dummy = ListNode(0)
+
         dummy.next = head
 
         fast = dummy
@@ -21,6 +21,5 @@ class Solution:
 
         slow.next = slow.next.next
 
-        return dummy.next
 
-        
+        return dummy.next
