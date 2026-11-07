@@ -1,6 +1,12 @@
 class Solution:
     def reverseKGroup(self, head, k):
 
+
+        """
+        concept is easy, solution sucks
+        involves grouping nodes and reversing them and then moving to the next group 
+        which is so frustrating
+        """
         dummy = ListNode(0)
         dummy.next = head
         group_prev = dummy
